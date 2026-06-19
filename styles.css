@@ -3460,6 +3460,8 @@ body.menu-open {
 @media (max-width: 768px) {
   body.menu-open::after {
     z-index: 25;
+    background: rgba(16, 34, 53, 0.42);
+    backdrop-filter: blur(2px);
   }
 
   .site-chrome {
@@ -3513,12 +3515,44 @@ body.menu-open {
     left: 0.6rem;
     right: 0.6rem;
     max-height: calc(100dvh - 116px);
-    margin: 0;
+    margin: 0.5rem 0 0;
+    padding: 0.55rem;
     z-index: 31;
+    gap: 0.2rem;
+    background: #fffaf3;
+    border: 1px solid rgba(27, 53, 86, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(16, 34, 53, 0.24);
+  }
+
+  .nav-links li,
+  .nav-links li:last-child {
+    width: 100%;
+    border: 0;
   }
 
   .nav-links a {
     min-height: 48px;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    justify-content: flex-start;
+    border-radius: 12px;
+    color: var(--af-navy-strong);
+    background: transparent;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    color: var(--af-orange-dark);
+    background: rgba(242, 140, 40, 0.1);
+  }
+
+  .nav-links a.active {
+    color: #fff;
+    background: linear-gradient(135deg, var(--af-orange), var(--af-orange-dark));
+    box-shadow: 0 8px 18px rgba(242, 140, 40, 0.2);
   }
 
   .section {
