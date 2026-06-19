@@ -3827,3 +3827,31 @@ body.menu-open {
     transform: none;
   }
 }
+
+/* Keep mobile calls to action compact instead of stretching edge to edge. */
+@media (max-width: 640px) {
+  .hero-actions,
+  .card-actions,
+  .section-actions,
+  .form-actions {
+    align-items: flex-start;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-call,
+  .whatsapp-link,
+  .contact-form .btn,
+  .application-form .btn {
+    width: auto;
+    max-width: 100%;
+    align-self: flex-start;
+    padding-inline: 1.2rem;
+  }
+
+  .property-details .btn {
+    flex: 0 1 auto;
+  }
+}
