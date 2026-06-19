@@ -3420,3 +3420,233 @@ body::before {
 .contact-page .contact-form select {
   font-size: 0.98rem;
 }
+
+/* Mobile layout safeguards. Keep these last so the redesign overrides above
+   cannot restore desktop columns on narrow screens. */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-wrap: anywhere;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+}
+
+.hero-grid > *,
+.page-hero-grid > *,
+.feature-grid > *,
+.property-grid > *,
+.contact-grid > *,
+.about-grid > *,
+.services-grid > *,
+.stats-grid > *,
+.benefits-grid > *,
+.why-grid > *,
+.office-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  body.menu-open::after {
+    z-index: 25;
+  }
+
+  .site-chrome {
+    backdrop-filter: none;
+  }
+
+  .top-strip-inner {
+    min-height: 36px;
+    padding-block: 0.35rem;
+  }
+
+  .top-strip p {
+    font-size: 0.78rem;
+  }
+
+  .top-strip-socials {
+    flex: 0 0 auto;
+  }
+
+  .top-strip-social-link {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-wrap {
+    min-height: 68px;
+  }
+
+  .brand-logo-img {
+    width: min(148px, 44vw);
+    max-height: 46px;
+  }
+
+  .menu-toggle {
+    display: inline-grid !important;
+    place-items: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 1.35rem;
+  }
+
+  .site-header nav {
+    position: static !important;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0.6rem;
+    right: 0.6rem;
+    max-height: calc(100dvh - 116px);
+    margin: 0;
+    z-index: 31;
+  }
+
+  .nav-links a {
+    min-height: 48px;
+  }
+
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .page-hero,
+  .contact-page .page-hero {
+    padding: 3rem 0 1rem;
+  }
+
+  .hero {
+    min-height: calc(100svh - 104px);
+    padding: 0;
+  }
+
+  .hero-content {
+    width: min(100% - 1.2rem, 980px);
+    padding: 3.4rem 0 5.5rem;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: clamp(2rem, 10vw, 3.15rem);
+    line-height: 1;
+  }
+
+  .hero p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .hero-controls {
+    width: calc(100% - 1.2rem);
+    bottom: 0.75rem;
+  }
+
+  .hero-grid,
+  .page-hero-grid,
+  .feature-grid,
+  .property-grid,
+  .contact-grid,
+  .about-grid,
+  .services-grid,
+  .stats-grid,
+  .benefits-grid,
+  .why-grid,
+  .office-grid,
+  .property-card,
+  .site-footer .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .property-media-frame {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .property-content,
+  .stat-card,
+  .benefit-card,
+  .why-card,
+  .feature-card,
+  .service-card,
+  .contact-card,
+  .detail-card,
+  .panel,
+  .section-card {
+    padding: 1.05rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 9vw, 2.65rem);
+    line-height: 1.02;
+  }
+
+  .hero-title,
+  .page-title,
+  .contact-page .page-title {
+    font-size: clamp(2.35rem, 12vw, 3.5rem);
+    line-height: 0.94;
+  }
+
+  .callout-strip {
+    padding: 1.15rem;
+  }
+
+  .site-footer {
+    padding-top: 2.5rem;
+  }
+
+  .floating-whatsapp {
+    left: auto;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: auto;
+    max-width: calc(100% - 1.5rem);
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: calc(100% - 1rem);
+  }
+
+  .top-strip p {
+    max-width: calc(100% - 104px);
+  }
+
+  .hero-actions,
+  .card-actions,
+  .section-actions,
+  .form-actions,
+  .property-details {
+    width: 100%;
+  }
+
+  .property-details .btn {
+    flex: 1 1 100%;
+  }
+
+  .hero-badges {
+    gap: 0.4rem;
+  }
+
+  .badge {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.78rem;
+  }
+}
