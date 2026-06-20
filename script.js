@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <a class="btn btn-call nav-call" href="tel:+2348107020533">Call Now</a>
     </div>
   </header>
 </div>`,
@@ -235,6 +236,28 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   }
+
+  document.querySelectorAll("[data-carousel]").forEach((testimonialCarousel) => {
+    const track = testimonialCarousel.querySelector(".testimonial-track");
+    const slides = Array.from(testimonialCarousel.querySelectorAll(".testimonial-slide"));
+    const previous = testimonialCarousel.querySelector("[data-prev]");
+    const next = testimonialCarousel.querySelector("[data-next]");
+
+    if (!track || slides.length < 1) return;
+
+    let testimonialIndex = 0;
+    const showTestimonial = (index) => {
+      testimonialIndex = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+    };
+
+    previous?.addEventListener("click", () => showTestimonial(testimonialIndex - 1));
+    next?.addEventListener("click", () => showTestimonial(testimonialIndex + 1));
+
+    if (slides.length > 1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.setInterval(() => showTestimonial(testimonialIndex + 1), 6000);
+    }
+  });
 
   const revealEls = document.querySelectorAll(".reveal");
 
