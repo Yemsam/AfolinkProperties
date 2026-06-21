@@ -4100,3 +4100,28 @@ body.menu-open {
     font-size: 0.76rem;
   }
 }
+
+/* Match GreaterOneAgro's main-menu type scale. */
+.nav-links a {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links a {
+    font-size: 0.98rem;
+  }
+}
+
+.footer-bottom .footer-designer {
+  flex: 0 0 100%;
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.footer-bottom .footer-designer span {
+  color: var(--af-gold);
+  font-weight: 800;
+}
