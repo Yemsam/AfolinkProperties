@@ -2994,13 +2994,6 @@ body::before {
   background: #0d1d31;
 }
 
-.property-media-stack {
-  display: grid;
-  grid-template-rows: minmax(230px, 1fr) minmax(180px, 0.72fr);
-  height: 100%;
-  min-height: 440px;
-}
-
 .property-media-frame {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -3008,24 +3001,9 @@ body::before {
   height: 100%;
 }
 
-.property-media-stack .property-media-frame {
-  aspect-ratio: auto;
-  min-height: 0;
-}
-
-.property-photo-frame {
-  position: relative;
-  min-height: 180px;
-  margin: 0;
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  background: var(--af-navy-strong);
-}
-
 .property-media-frame iframe,
 .property-media-frame img,
-.property-media-frame video,
-.property-photo-frame img {
+.property-media-frame video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3033,25 +3011,31 @@ body::before {
   display: block;
 }
 
-.property-photo-frame img[src$="real-estate-1.png"],
-.property-photo-frame img[src$="real-estate-3.png"] {
-  object-position: center 58%;
-}
-
-.property-photo-frame img[src$="real-estate-2.png"] {
-  object-position: 38% center;
-}
-
-.property-photo-frame img[src$="real-estate-4.png"],
-.property-photo-frame img[src$="real-estate-5.png"] {
-  object-position: center;
-}
-
 .property-content {
   padding: 1.3rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+}
+
+.property-guidance-photo {
+  width: 100%;
+  max-height: 360px;
+  margin: 1.4rem 0 0;
+  overflow: hidden;
+  border: 4px solid #fff;
+  border-radius: 22px;
+  background: var(--af-navy-strong);
+  box-shadow: var(--af-shadow-soft);
+}
+
+.property-guidance-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .property-meta,
@@ -3678,23 +3662,9 @@ body.menu-open {
     min-height: clamp(220px, 54vw, 360px);
   }
 
-  .property-media-stack {
-    grid-template-rows: auto auto;
-    min-height: 0;
-  }
-
   .property-media-frame {
     height: auto;
     aspect-ratio: 16 / 10;
-  }
-
-  .property-media-stack .property-media-frame {
-    aspect-ratio: 16 / 10;
-  }
-
-  .property-photo-frame {
-    min-height: 0;
-    aspect-ratio: 16 / 9;
   }
 
   .property-content,
