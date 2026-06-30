@@ -2946,6 +2946,26 @@ body::before {
   box-shadow: var(--af-shadow);
 }
 
+.page-hero-photo {
+  position: relative;
+  min-height: 230px;
+  margin: 0 0 1.1rem;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.84);
+  border-radius: 22px;
+  background: var(--af-navy-strong);
+  box-shadow: 0 18px 36px rgba(16, 34, 53, 0.16);
+}
+
+.page-hero-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .property-filters {
   display: flex;
   flex-wrap: wrap;
@@ -2974,6 +2994,13 @@ body::before {
   background: #0d1d31;
 }
 
+.property-media-stack {
+  display: grid;
+  grid-template-rows: minmax(230px, 1fr) minmax(180px, 0.72fr);
+  height: 100%;
+  min-height: 440px;
+}
+
 .property-media-frame {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -2981,13 +3008,43 @@ body::before {
   height: 100%;
 }
 
+.property-media-stack .property-media-frame {
+  aspect-ratio: auto;
+  min-height: 0;
+}
+
+.property-photo-frame {
+  position: relative;
+  min-height: 180px;
+  margin: 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--af-navy-strong);
+}
+
 .property-media-frame iframe,
 .property-media-frame img,
-.property-media-frame video {
+.property-media-frame video,
+.property-photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border: 0;
+  display: block;
+}
+
+.property-photo-frame img[src$="real-estate-1.png"],
+.property-photo-frame img[src$="real-estate-3.png"] {
+  object-position: center 58%;
+}
+
+.property-photo-frame img[src$="real-estate-2.png"] {
+  object-position: 38% center;
+}
+
+.property-photo-frame img[src$="real-estate-4.png"],
+.property-photo-frame img[src$="real-estate-5.png"] {
+  object-position: center;
 }
 
 .property-content {
@@ -3178,6 +3235,12 @@ body::before {
     rgba(17, 36, 59, 0.98)
   );
   color: rgba(255, 255, 255, 0.94);
+}
+
+.page-hero .quote-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .quote-card p {
@@ -3606,9 +3669,27 @@ body.menu-open {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .page-hero-photo {
+    min-height: clamp(220px, 54vw, 360px);
+  }
+
+  .property-media-stack {
+    grid-template-rows: auto auto;
+    min-height: 0;
+  }
+
   .property-media-frame {
     height: auto;
     aspect-ratio: 16 / 10;
+  }
+
+  .property-media-stack .property-media-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .property-photo-frame {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .property-content,
